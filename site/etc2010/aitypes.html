@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Types &middot; PandAI Archive</title>
+<link rel="stylesheet" href="../../assets/css/site.css">
+</head>
+<!-- rebuilt by tools/build_site.py -->
+<body>
+<header class="topbar">
+  <a class="brand" href="../../index.html">
+    <img src="../../assets/img/brand/PANDAILogo_new.png" alt="">
+    <span>PandAI Archive</span>
+  </a>
+  <nav class="edition">
+    <a href="../wiki/index.html">2016&ndash;2020 wiki</a>
+    <a href="../etc2010/index.html" class="on">2010 ETC site</a>
+  </nav>
+</header>
+<div class="banner">
+  Archived copy of a site that is no longer online &mdash;
+  <a href="https://web.archive.org/web/20170123102252/https://etc.cmu.edu/projects/pandai/index.html">original snapshot on the Wayback Machine</a>.
+</div>
+<nav class="sectionnav"><a href="index.html">Home</a><a href="Team.html">Team</a><a href="Research.html">Research</a><a href="Community.html">Community</a><a href="Gallery.html">Gallery</a><a href="Pathfinding.html">Pathfinding</a><a href="Download.html">Download</a><a href="aitypes.html" class="on">AI Types</a></nav>
+<main class="content">
+<h1>AI Types</h1>
+
+  <div id="header"></div>
+  <div id="mainContent">
+    
+
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<hr /> 
+      <p align="center"><FONT COLOR="#00cc99" style="font-size: x-large; color: #FF0; text-align: center;">Some Terms and Definitions</font></p>
+<hr />
+      <p align="center"><br />
+      </p>
+      <ul>
+        <li><FONT COLOR="#FF8040">Feature</font> - a prominent or conspicuous part or characteristic of a game A.I. behavior</li>
+      </ul>
+      <ul>
+        <li><FONT COLOR="#FF8040">Tuner</font> - aspects of a game A.I. behavior that can be easily adjusted by the Panda3D programmer      </li>
+      </ul>
+      <ul>
+        <li><font color="#FF8040">Non-player Character (NPC)</font> - character or object in the game that is controlled by the program and not the human player<br />
+      </li>
+      </ul>
+      <p>&nbsp;</p>
+      <hr />
+      <p align="center"><font color="#00cc99" style="font-size: x-large; color: #FF0; text-align: left;">Game A.I. Steering Behaviors</font></p>
+<hr />
+      <br />
+      <strong><FONT COLOR="#FF0000" style="font-size: large">1. Seek</font></strong><br />
+      <ul>
+        <li><FONT COLOR="#FF8040">Features</font>:
+    <ul>
+      <li>seeker's target is a static point</li>
+    </ul>
+  </li>
+  
+  <ul>
+    <li>seeking object accelerates till its force is equal to its max force and reaches target a quickly as possible </li>
+    <li>seeking object stops when it reaches its target</li>
+    <li>seeker always faces target</li>
+  </ul>
+</ul>
+<ul>
+  <li><FONT COLOR="#FF8040">Tuners</font>: </li>
+  
+  <ul>
+    <li>* All found in AICharacter</li>
+  </ul>
+</ul>
+<p>&nbsp;</p>
+<div class="videoframe"><iframe width="660" height="371" src="https://www.youtube.com/embed/-UMeYgZLa8Q" title="PandAI demo video" frameborder="0" allowfullscreen></iframe></div>
+<p><strong>Video Description:</strong> Five NPCs (red) all <strong>SEEK</strong> their respective static targets, which are represented by yellow spheres dispersed throughout the 3-dimensional space. </p>
+<p>&nbsp;</p>
+<hr />
+<p>&nbsp;</p>
+<p><strong><FONT COLOR="#FF0000" style="font-size: large">2. Pursue</font></strong><br />
+</p>
+<ul>
+  <li><FONT COLOR="#FF8040">Features</font>:</li>
+  <ul>
+    <li>an advancement of seek; a continuous seek where the pursuing object constantly adjusts while tracking a moving object</li>
+    </ul>
+  </p>
+  <li><FONT COLOR="#FF8040">Tuners</font>:</li>
+  <ul>
+    
+    <li>* All found in AICharacter</li>
+    </ul>
+</ul>
+      <p>&nbsp;</p>
+<div class="videoframe"><iframe width="660" height="371" src="https://www.youtube.com/embed/QdcbN3FLYVs" title="PandAI demo video" frameborder="0" allowfullscreen></iframe></div>
+
+      <p><strong>Video Description:</strong> The two NPCs (red) <strong>PURSUE</strong> their respective wandering targets (blue NPCs).  </p>
+<p>&nbsp;</p>
+<hr />
+      <p>&nbsp;</p>
+      <p><strong><FONT COLOR="#FF0000" style="font-size: large">3. Flee</font></strong><br />
+      </p>
+      <ul>
+        <li><FONT COLOR="#FF8040">Features</font>:</li>
+        <ul>
+          <li>opposite of seek; object moves away from a static point (point of avoidance)<br />
+          </li>
+          <li>Fleeing object accelerates till its force is equal to its max force and moves away from the point of avoidance as quickly as possible</li>
+          <li>Fleeing object always faces away from the point of avoidance</li>
+          <li>Fleeing object stops fleeing once it has reached the &quot;Panic + Relax&quot; distance<br />
+          </li>
+        </ul>
+        </p>
+        <li><FONT COLOR="#FF8040">Tuners</font>:</li>
+        <ul>
+          <li>panic distance - detection radius of the AI object</li>
+          <li>relax distance - the distance to stop after flee has been started<br />
+          </li>
+          <li>* Others determined in AICharacter</li>
+        </ul>
+      </ul>
+      <p>&nbsp;</p>
+      <div class="videoframe"><iframe width="660" height="371" src="https://www.youtube.com/embed/sXzzuK2Vnnk" title="PandAI demo video" frameborder="0" allowfullscreen></iframe></div>
+
+      <p><strong>Video Description:</strong>   Four NPCs (red) <strong>FLEE</strong> from different static points, which are represented by yellow spheres dispersed throughout the 3-dimensional space. </p>
+<p>&nbsp;</p>
+<hr />
+      <p>&nbsp;</p>
+      <p><strong><FONT COLOR="#FF0000" style="font-size: large">4. Evade</font></strong><br />
+        
+      <ul>
+        <li><FONT COLOR="#FF8040">Features</font>:</li>
+        <ul>
+          <li>an advancement of flee; evading object moves away from a moving object (object of avoidance) until it reaches the &quot;Panic + Relax&quot; distance          </li>
+        </ul>
+        </p>
+        <li><FONT COLOR="#FF8040">Tuners</font>:</li>
+        <ul>
+          <li>panic distance - detection radius of the AI object</li>
+          <li>relax distance - the distance to stop after flee has been started<br />
+          </li>
+          <li>* Others determined in AICharacter</li>
+        </ul>
+      </ul>
+      <p>&nbsp;</p>
+      <div class="videoframe"><iframe width="660" height="371" src="https://www.youtube.com/embed/JchuRRHqPUQ" title="PandAI demo video" frameborder="0" allowfullscreen></iframe></div>
+      <p><strong>Video Description:</strong>   The NPC (red) is set to <strong>EVADE</strong> the player-controlled character (blue) whenever it gets too close.  After evading a certain distance away from the blue character, the red character comes to a stop. </p>
+<p>&nbsp;</p>
+<hr />
+      <p>&nbsp;</p>
+      <p><strong><FONT COLOR="#FF0000" style="font-size: large">5. Arrival</font></strong>      </p>
+      <ul>
+        <li><FONT COLOR="#FF8040">Features</font>:
+          <ul>
+            <li>arriving object decelerates as it approaches its target (can be a static point or an object in motion)<br />
+            </li>
+          </ul>
+        </li>
+        
+        <ul>
+          <li>Can be used only with Seek and Pursue<br />
+          </li>
+        </ul> </p>
+        <li><FONT COLOR="#FF8040">Tuners</font>:</li>
+        <ul>
+          <li>distance from the target point after which it decelerates (braking distance)</li>
+        </ul>
+      </ul>
+      <p>&nbsp;</p>
+      <div class="videoframe"><iframe width="660" height="371" src="https://www.youtube.com/embed/qLotOOFqRYk" title="PandAI demo video" frameborder="0" allowfullscreen></iframe></div>
+      <p><strong>Video Description:</strong>   The NPC (red) enacts the <strong>ARRIVAL</strong> behavior whenever it comes close to completing its pursuit of an invisible point located directly behind the player-controlled character (blue).  The fact that this “pursue point” is placed behind the blue character instead of centered within it, means that the NPC will arrive next to its target as opposed to directly over it. </p>
+<p>&nbsp;</p>
+<hr />
+      <p>&nbsp;</p>
+      <p><strong><font color="#FF0000" style="font-size: large">6. Wander</font></strong>      </p>
+      <ul>
+        <li><font color="#FF8040">Features</font>:
+          <ul>
+            <li>NPC traverses around the world with no particular goal<br />
+            </li>
+          </ul>
+        </li>
+        <ul>
+          <li>invisible &quot;wander sphere&quot; stems from the character out in front of it</li>
+          <li>NPC can be restricted to wandering around a designated region<br />
+          </li>
+        </ul>
+        <li><font color="#FF8040">Tuners</font>:</li>
+        <ul>
+          <li>size of the &quot;wander sphere&quot;</li>
+          <li>ability to lock an axis (x, y, or z) of the &quot;wander sphere&quot;</li>
+          <li>the restricted region (location and size) in which the NPC can wander</li>
+        </ul>
+      </ul>
+      <p>&nbsp;</p>
+      <div class="videoframe"><iframe width="660" height="371" src="https://www.youtube.com/embed/jy6F6HnenoE" title="PandAI demo video" frameborder="0" allowfullscreen></iframe></div>
+      <p><strong>Video Description:</strong>   All NPCs (red) <strong>WANDER</strong> around the 3-dimensional space.  The wander behavior is caused by random points being generated within an invisible boundary in front of each NPC.  The NPC continuously seeks these random points, so that it appears to be wandering around aimlessly. </p>
+<p>&nbsp;</p>
+<hr />
+      <p>&nbsp;</p>
+      <strong><font color="#FF0000" style="font-size: large">7. Flock</font></strong>
+      <ul>
+        <li><font color="#FF8040">Features</font>:
+          <ul>
+            <li>group of NPCs moving together as a herd            
+              <ul>
+                <li>flocking behavior is a result of each NPC's awareness of its neighbors in the flock, which is determined by a &quot;visibility cone&quot; that stems from each individual NPC          
+                  <ul>
+                    <li>based on this NPC awareness level, three other behaviors act together  to produce the flock behavior:                
+                      <ol>
+                        <li><strong style="font-size: small">cohesion</strong> <span style="font-size: small">-- finds average position of neighbors and tries to move to that position</span></li>
+                        <li><strong style="font-size: small">separation</strong> -- <span style="font-size: small">object keeps a certain distance between itself and its neighbor</span></li>
+                        <li><span class="oneColFixCtrHdr" style="font-size: small"><strong>alignment</strong> -- finds average direction in which all neighbors are moving and tries to move in that  direction</span> </li>
+                      </ol>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <br />
+        </li>
+        <span style="font-size: medium">
+        </p>
+        </span>
+        <li><font color="#FF8040">Tuners</font>:</li>
+        <ul>
+          <li>the angle and length of each NPC's &quot;visibility cone&quot;</li>
+          <li>weight of cohesion, separation, and alignment (how much each sub-behavior of flock affects the overall flocking behavior)</li>
+        </ul>
+      </ul>
+<p>&nbsp;</p>
+<div class="videoframe"><iframe width="660" height="371" src="https://www.youtube.com/embed/dkfnlqH06IY" title="PandAI demo video" frameborder="0" allowfullscreen></iframe></div>
+<p><strong>Video Description:</strong>   Groups of NPCs (red, pink, and yellow) <strong>FLOCK</strong> together, and each separate flock pursues the player-controlled character (blue).  Different colors distinguish the different flocking groups, but they are also there to show how variations of the behavior can be created by adjusting the tuners.  For example, the NPCs in the red flock have “visibility cones” with lower viewing angles, so their flock does not stay together as well as pink and yellow.  The separate flocks have also been given different speeds. </p>
+<p>&nbsp;</p>
+<hr />
+<p>&nbsp;</p>
+<p><strong><font color="#FF0000" style="font-size: large">8. Obstacle Avoidance</font></strong></p>
+<ul>
+  <li><font color="#FF8040">Features</font>:
+    <ul>
+      <li>NPC recognizes obstacles, and attempts to move around  them<br />
+      </li>
+    </ul>
+  </li>
+<li><font color="#FF8040">Tuners</font>:</li>
+  <ul>
+    <li>“Feeler length”, which is the range at which the  obstacle can be detected by the NPC</li>
+    </ul>
+  <p>&nbsp;</p>
+
+</ul>
+<div class="videoframe"><iframe width="660" height="371" src="https://www.youtube.com/embed/xZnuWRiKL6I" title="PandAI demo video" frameborder="0" allowfullscreen></iframe></div>
+  
+<p><strong>Video Description:</strong>  A  player-controlled character (yellow egg) is moved around the plain, while a  flock of NPCs (white eggs) all pursue and use OBSTACLE AVOIDANCE to navigate  around the obstacles (tress).  </p>
+<p>&nbsp; </p>
+<hr />
+<p>&nbsp;</p>
+<p><strong><font color="#FF0000" style="font-size: large">9. Path Follow</font></strong></p>
+<ul>
+  <li><font color="#FF8040">Features</font>:
+    <ul>
+      <li>A path is formed from several waypoints placed in  3D space, which the NPC then traverses</li>
+      <ul>
+        <li>There must be at least two waypoints in order  for a path to be formed<br />
+        </li>
+      </ul>
+    </ul>
+  </li>
+  <li><font color="#FF8040">Tuners</font>:
+    <ul>
+      <li>Position of the waypoints</li></ul>
+  </li>
+  </ul>
+<p>
+  <div class="videoframe"><iframe width="660" height="371" src="https://www.youtube.com/embed/hIDyzUJgu2w" title="PandAI demo video" frameborder="0" allowfullscreen></iframe></div>
+</p>
+<p><strong>Video Description:</strong>   The NPC (red) traverses around a set path, formed by four waypoints  (yellow spheres).</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+    </div>
+    
+<hr />
+
+  <!-- end #mainContent -->
+</main>
+<footer class="foot">
+  <p>PandAI was built at the Carnegie Mellon Entertainment Technology Center. This is an
+  unofficial preservation mirror; all content belongs to its original authors.</p>
+</footer>
+</body>
+</html>

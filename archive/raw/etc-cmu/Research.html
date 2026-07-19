@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Research</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<style type="text/css">
+<!--
+body {
+	font: 100% Verdana, Arial, Helvetica, sans-serif;
+	background: #000000;
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #FFFFFF;
+}
+.oneColFixCtrHdr #container {
+	width: 800px;  /* using 20px less than a full 800px width allows for browser chrome and avoids a horizontal scroll bar */
+	background: #000000;
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	border: 1px solid #000000;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+}
+.oneColFixCtrHdr #header {
+	background: #000000;
+	padding: 0 0px 0 0px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+}
+.oneColFixCtrHdr #header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 0px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+}
+.oneColFixCtrHdr #mainContent {
+	padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+	background: #000000;
+}
+.oneColFixCtrHdr #footer {
+	padding: 0 10px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+	background:#000000;
+}
+.oneColFixCtrHdr #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+}
+-->
+</style></head>
+
+<body link="#33CCFF" vlink="#33CCFF" class="oneColFixCtrHdr">
+
+<div id="container">
+  <div id="header">
+    <div id="header2">
+      <div id="header3"></div>
+      <div id="mainContent2">
+        <p align="center"><img src="About/PANDAILogo_new.png" alt="presearch" width="169" height="169" /></p>
+        <div align="center"><strong><a href="index.html">Home</a> | <a href="Team.html">Team</a> | <a href="Research.html">Research</a> | <a href="Community.html"> Community</a> | <a href="Gallery.html">Gallery</a> | <a href="Pathfinding.html">Pathfinding</a> | <a href="Download.html">Download</a></strong> <strong>| <a href="aitypes.html">AI Types</a></strong></div>
+        <p></p>
+      </div>
+    </div>
+    <h1 align="center">&nbsp;</h1>
+    <h1 align="center">Research
+      <!-- end #header -->
+    </h1>
+  </div>
+  <div id="mainContent">
+    <p>&nbsp;</p>
+    <hr />
+    <p>&nbsp;</p>
+<p>Here are some of the Links to the References we used during our research:</p>
+    <p> <a href="http://www.red3d.com/cwr/papers/1987/boids.html" target="_blank">http://www.red3d.com/cwr/papers/1987/boids.html</a><br />
+      <br />
+    <a href="http://www.red3d.com/cwr/boids/" target="_blank">http://www.red3d.com/cwr/boids/</a></p>
+    <p>&nbsp;</p>
+    <hr />
+    <p align="center"><strong>FLOCKING BEHAVIOUR</strong></p>
+<p>  Craig Reynolds coined the term boids when referring to his  simulated flocks. The behavior he generated very closely resembles shoals of  fish or flocks of birds. All the boids can be moving in one direction at one  moment, and then the next moment the tip of the flock formation can turn and  the rest of the flock will follow as a wave of turning boids propagates through  the flock. Reynolds’ implementation is leaderless in that no one boid actually  leads the flock; in a sense they all sort of follow the group, which seems to  have a mind of its own. The motion Reynold’s flocking algorithm generated is  quite impressive. This algorithm is the result of 3 simple behaviors which are  as follows:<br />
+  </p>
+<p>Cohesion:</p>
+<p>  Have each unit steer toward the average position of  neighbors.</p>
+<p><br />
+  <img src="Research/Research_clip_image001.gif" alt="1" width="217" height="145" hspace="12" align="left" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Alignment:</p>
+<p>Have each unit steer  so as to align itself to the average heading of its neighbors.</p>
+<p><br />
+  <img src="Research/Research_clip_image002.gif" alt="2" width="217" height="145" hspace="12" align="left" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Separation:</p>
+<p><br />
+  Have each unit steer to avoid hitting its neighbors.</p>
+<p><br />
+  <img src="Research/Research_clip_image003.gif" alt="3" width="217" height="145" /></p>
+<p>FLOCKING BEHAVIOR PARAMETERS</p>
+<p><img src="Research/view angle.jpg" width="668" height="263" alt="ASD" /></p>
+<ol>
+  <li>View Angle: This parameter decides the  visibility of the unit and hence determines its neighbors.</li>
+
+  <li>Separation Factor: This parameter decides how  far the apart the units in the flock should be.</li>
+
+  <li>Radius Factor: Specifies the radius of the  visibility.</li>
+</ol>
+<p>&nbsp;</p>
+<p>The above research is based off the following articles and  publications:</p>
+<ol>
+  <li><a href="http://www.red3d.com/cwr/boids/">http://www.red3d.com/cwr/boids/</a> by Craig Reynolds.</li>
+  <li>AI for Game Developers  by David M. Bourg &amp; Glenn Seemann.</li>
+</ol>
+<p>&nbsp;</p>
+<hr />
+<p align="center">&nbsp;</p>
+<p align="center"><strong>WANDER RESEARCH</strong></p>
+<p><br />
+  The  primary research for wander behavior used in current generation games is from  the GDC 1999 paper on <em>“Steering Behaviors  for Autonomous Characters” </em>by Craig Reynolds.</p>
+<p>&nbsp;</p>
+<p align="center"><img src="Research/Research_clip_image001.jpg" alt="asd" width="448" height="503" /></p>
+<p>&nbsp;</p>
+<p align="justify">Here is a link to the paper : <a href="http://www.red3d.com/cwr/papers/1999/gdc99steer.html">http://www.red3d.com/cwr/papers/1999/gdc99steer.html</a></p>
+<p align="justify">Wander is a type of random steering which steers the  character/vehicle in a direction in one frame and then in another direction  related to the original direction in the other frame. This produces a realistic  wandering effect and the image shown above is taken from a live applet from <a href="http://www.red3d.com/cwr/steer/Wander.html">http://www.red3d.com/cwr/steer/Wander.html</a></p>
+<p>&nbsp;</p>
+    <hr />
+    <!-- end #mainContent --></div>
+  <div id="footer">
+    <p align="center">&nbsp;</p>
+    <p align="center">:: Team Pandai :: </p>
+  <!-- end #footer --></div>
+<!-- end #container --></div>
+</body>
+</html>
+

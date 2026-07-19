@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting Started &middot; PandAI Archive</title>
+<link rel="stylesheet" href="../../assets/css/site.css">
+</head>
+<!-- rebuilt by tools/build_site.py -->
+<body>
+<header class="topbar">
+  <a class="brand" href="../../index.html">
+    <img src="../../assets/img/brand/PANDAILogo_new.png" alt="">
+    <span>PandAI Archive</span>
+  </a>
+  <nav class="edition">
+    <a href="../wiki/index.html" class="on">2016&ndash;2020 wiki</a>
+    <a href="../etc2010/index.html">2010 ETC site</a>
+  </nav>
+</header>
+<div class="banner">
+  Archived copy of a site that is no longer online &mdash;
+  <a href="https://web.archive.org/web/20201022234250/https://sites.google.com/site/etcpandai/">original snapshot on the Wayback Machine</a>.
+</div>
+<nav class="sectionnav"><a href="index.html">Home</a><a href="what-is-pandai.html">What is PandAI</a><a href="documentation.html">Documentation</a><a href="tutorials.html">Tutorials</a><a href="examples.html">Examples</a><a href="download.html">Download</a></nav>
+<main class="content">
+<h1>Getting Started</h1>
+
+<table xmlns="http://www.w3.org/1999/xhtml" cellspacing="0" class="sites-layout-name-one-column sites-layout-hbox"><tbody><tr><td class="sites-layout-tile sites-tile-name-content-1"><div dir="ltr"><div><b><br />
+</b></div>
+<b>So lets begin!</b>
+<div><br />
+</div>
+<div><b>PandAI is a subsection of AI called Game AI which is basically as the name suggests related to creating a believable artificial intelligence in non playable character (NPC's) in a game environment.</b></div>
+<div><b><br />
+</b></div>
+<div><b>Game AI is basically divided into two sections :</b></div>
+<div><b><br />
+</b></div>
+<div><b>1. Steering Behaviors</b></div>
+<div><b><br />
+</b></div>
+<div><b>2. Pathfinding</b></div>
+<div><b><br />
+</b></div>
+<div><b>
+<hr />
+</b></div>
+<div><b><br />
+</b></div>
+<div><b><u><span style="font-size:medium"><font color="#FFFFFF">The basics :</font></span></u></b></div>
+<div><b><u><span style="font-size:medium"><font color="#FFFFFF"><br />
+</font></span></u></b></div>
+<div><b><u><span style="font-size:medium"><font color="#FFFFFF"><br />
+</font></span></u></b></div>
+<div><b><u><span style="font-size:medium"><font color="#FFFFFF">Theory :</font></span></u></b></div>
+<div><b><u><span style="font-size:medium"><font color="#FFFFFF"><br />
+</font></span></u></b></div><div><font color="#CFE2F3"><span style="font-size:small"><b>The PandAI  library has been built upon the design pattern of composition.</b></span></font></div><div><font color="#CFE2F3"><span style="font-size:small"><b><br /></b></span></font></div><div><font color="#CFE2F3"><span style="font-size:small"><b>There exists a main AIWorld Class which governs all updates of any AICharacters added to it. Each AICharacter has its own AIBehavior object which keeps track of all position and rotation updates based on the type of AI which is acting on that character.</b></span></font></div><div><font color="#CFE2F3"><span style="font-size:small"><b><br /></b></span></font></div><div><font color="#CFE2F3"><span style="font-size:small"><b>So in short :  AIWorld -&gt; AICharacter -&gt; AIBehavior</b></span></font></div><div><font color="#CFE2F3"><span style="font-size:small"><b><br /></b></span></font></div><div><font color="#CFE2F3"><span style="font-size:small"><b>Each AIBehavior object has the functionality to implement all the steering behaviors and pathfinding behaviors. So once you get a reference to this object from the AICharacter, it should give you the ability to call the respective functions.</b></span></font></div><div><b><u><span style="font-size:medium"><font color="#FFFFFF"><br /></font></span></u></b></div>
+<div></div>
+<div></div>
+<div><b><u><span style="font-size:medium"><font color="#FFFFFF">Implementation :</font></span></u></b></div>
+<div>
+<div><br />
+</div>
+<div><b><font color="#CFE2F3">* Well to start off PandAI is now a part of Panda3D, so you don't have to worry about how to include the dll or how to integrate it !</font></b></div>
+<div><b><font color="#CFE2F3"><br />
+</font></b></div>
+<div><b><font color="#CFE2F3">Following are the steps to get the basics of PandAI working. Don't worry if you can't understand some of them. </font></b></div>
+<div><b><font color="#CFE2F3"><br />
+</font></b></div>
+<div><b><span style="color:rgb(206,219,223);font-weight:normal"><b>Step 1 :   </b></span><span style="color:rgb(206,219,223);font-weight:normal"><b>To use our AI library into your game you need to import PandAI into your game code via :</b></span><span style="font-weight:normal"><span style="color:rgb(206,219,223)">  <b> </b></span><b><font color="#FFD966">from</font></b></span><span style="font-weight:normal"><b><font color="#FFD966"> panda3.ai import *</font></b></span></b></div>
+<div><br />
+</div>
+<div><b>Step 2 :   Create an object of the <font color="#FFFFFF">AIWorld</font> class which defines your AI in your game world. </b></div>
+<div><b><br />
+</b></div>
+<div><b>Step 3 :   Setup a task which runs continuously which keeps calling the '<font color="#FFD966">Update()</font>' function for your previously created <font color="#FFD966">AIWorld object</font> </b></div>
+<div><b><br />
+</b></div>
+<div><b>Step 4 :   To test this out let us also implement a simple call to the '<font color="#FFD966">seek</font>' behavior function in PandAI. To do this we need two objects: A seeker and a target. For this example, we will use Ralph (seeker) and an arrow model (target).</b></div>
+<div><b><br />
+</b></div>
+<div><b>Step 5 :   Create an '<font color="#FFD966">AICharacter</font>' object and attach it to your AIWorld class (previously created). The AICharacter constructor looks for a nodePath, this can be a Model or an Actor or even an Empty Node Path!</b></div>
+<div><b><br />
+</b></div>
+<div><b>Step 6 :   Get a reference to the AIBehaviors object of your previously created AICharacter class via the '<font color="#FFD966">getAiBehaviors</font>' function().</b></div>
+<div><b><br />
+</b></div>
+<div><b>Step 7 :   Call the seek function on your AIBehaviors reference (previously created). The seek function takes a nodePath or a Vector3 position to seek to.</b></div>
+<div><b><br />
+</b></div>
+<div><b>Step 8 :   Start your AIWorld update task which you created earlier.</b></div>
+<div><b><br />
+</b></div>
+<div><b>Step 9 :   Watch how your awesome seek function works !</b></div>
+<div><b><br />
+</b></div>
+<div><b>* Note :  It doesn't matter where your seek is first called (ie. before the AIWorld update or after) it should still work as soon as the Update starts processing.</b></div><div><b><br /></b></div><div><b><span style="font-weight:normal"><b><font color="#FFF2CC"><u><span style="font-size:small">Attached below is a plain and simple Panda 3D program made using these steps.</span></u></font></b></span></b></div><div><b><span style="font-weight:normal"><b><font color="#FFF2CC"><u><span style="font-size:small"><br /></span></u></font></b></span></b></div>
+<div><b><br />
+</b></div>
+<div><b>* Note :  This above example is only for seek but if you go to each of the pages, a separate example is provided showing you each AI individually.</b></div>
+<div><b><br />
+</b></div>
+<div><b>
+<hr />
+</b></div>
+<div><b><span style="font-weight:normal"><b><u><span style="font-size:medium"><font color="#FFFFFF"><br />
+</font></span></u></b></span></b></div>
+<div><b><span style="font-weight:normal"><b><u><span style="font-size:medium"><font color="#FFFFFF">Next Steps :</font></span></u></b></span></b></div>
+<div><b><font color="#FFFFFF"><br />
+</font></b></div>
+<div><b><font color="#CFE2F3">Now that you have a basic working program of PandAI, you should proceed to the <a href="documentation__steering-behaviors.html">Steering Behaviors</a> page and gain more knowledge of the system from there.</font></b></div>
+<div><font color="#FFFFFF"><b><br />
+</b></font></div>
+<div><font color="#FFFFFF"><b>
+<hr />
+</b></font></div>
+<div><br />
+</div>
+</div></div></td></tr></tbody></table>
+
+</main>
+<footer class="foot">
+  <p>PandAI was built at the Carnegie Mellon Entertainment Technology Center. This is an
+  unofficial preservation mirror; all content belongs to its original authors.</p>
+</footer>
+</body>
+</html>
