@@ -172,12 +172,43 @@ a:hover { color: var(--accent); }
 .hero {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 56px 24px 24px;
+  padding: 44px 24px 20px;
   text-align: center;
 }
-.hero img { width: 120px; height: 120px; }
-.hero h1 { margin: 18px 0 8px; font-size: 40px; }
-.hero p.lede { max-width: 640px; margin: 0 auto; color: var(--muted); font-size: 17px; }
+/* The wordmark is carried by the logo, so the page heading is kept for screen
+   readers and document structure only. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hero p.lede {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 17px;
+  text-align: left;   /* the logo acts as a dropped initial, so the text must be ragged-right */
+}
+.hero::after { content: ""; display: block; clear: both; }
+
+/* The logo set as an illuminated initial rather than a separate hero image. */
+.lede .initial {
+  float: left;
+  width: 88px;
+  height: 88px;
+  margin: 2px 20px 6px 0;
+}
+
+@media (max-width: 480px) {
+  .lede .initial { width: 58px; height: 58px; margin-right: 14px; }
+}
 
 .cards {
   display: grid;
@@ -223,8 +254,7 @@ a:hover { color: var(--accent); }
 .tablewrap { overflow-x: auto; }
 
 @media (max-width: 640px) {
-  .hero { padding-top: 36px; }
-  .hero h1 { font-size: 30px; }
+  .hero { padding-top: 30px; }
   .content { padding: 22px 16px 48px; }
   .topbar, .sectionnav, .banner { padding-left: 16px; padding-right: 16px; }
 }
