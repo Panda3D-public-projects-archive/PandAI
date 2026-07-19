@@ -96,8 +96,18 @@ these deliberate deviations:
   background much of the text would be invisible.
 
 The videos are **not** mirrored here — they remain on YouTube and are linked and embedded.
-All 25 were confirmed reachable when this archive was assembled; `videos.html` lists every
-ID so they stay identifiable if the embeds ever stop resolving.
+All 25 were confirmed actually playing (rendered in a browser, not just probed) when this
+archive was assembled. They live on three channels: `SuperPandai`, `johnkol83` and
+`AegisGrim`. `videos.html` lists every one, and their IDs, titles and uploaders are stored
+in `archive/videos.json` so that metadata survives even if the videos do not.
+
+Note that YouTube embeds do **not** work when the pages are opened straight off disk over
+`file://` — the player rejects the null origin with "Error 153". Serve the directory over
+HTTP to preview it locally:
+
+```
+python3 -m http.server 8000    # then open http://127.0.0.1:8000/
+```
 
 ## Credit
 

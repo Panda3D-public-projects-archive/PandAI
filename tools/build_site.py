@@ -13,6 +13,7 @@ and wrapped in a shared shell. Run from the repo root: python3 tools/build_site.
 """
 
 import html
+import json
 import os
 import re
 import shutil
@@ -357,13 +358,14 @@ VIDEO_PAGE = """<!DOCTYPE html>
 </header>
 <main class="content">
 <h1>Demo videos</h1>
-<p>Every demo reel the two sites embedded, listed here as plain links. The videos are
-hosted on YouTube and are not mirrored in this repository &mdash; this index exists so
-that the identifiers survive even if the embeds stop resolving. All {count} were
-reachable when this page was generated.</p>
+<p>Every demo reel the two sites embedded. The videos are hosted on YouTube and are not
+mirrored in this repository &mdash; this index exists so that the identifiers, titles and
+uploaders survive even if the embeds stop resolving. That metadata is also kept as
+<code>archive/videos.json</code>. All {count} were confirmed playing when this page was
+generated.</p>
 <div class="tablewrap">
 <table class="filetable">
-<tr><th>Video</th><th>Appears on</th></tr>
+<tr><th>Video</th><th>Uploaded by</th><th>Appears on</th></tr>
 {rows}
 </table>
 </div>
@@ -405,14 +407,32 @@ def build_video_index():
         for vid in re.findall(r"youtube\.com/v/([A-Za-z0-9_-]+)", source):
             videos.setdefault(vid, ("", set()))[1].add(page)
 
+    # Real titles and uploader channels, captured from YouTube's oEmbed endpoint so the
+    # metadata survives here even if the videos themselves ever disappear.
+    meta = {}
+    meta_path = os.path.join(ROOT, "archive", "videos.json")
+    if os.path.exists(meta_path):
+        with open(meta_path, encoding="utf-8") as fh:
+            meta = json.load(fh)
+
     rows = []
-    for vid in sorted(videos, key=lambda v: (videos[v][0].lower(), v)):
+    def sort_key(vid):
+        info = meta.get(vid, {})
+        return ((info.get("title") or videos[vid][0] or "￿").lower(), vid)
+
+    for vid in sorted(videos, key=sort_key):
         caption, pages = videos[vid]
-        label = html.escape(caption) if caption else vid
+        info = meta.get(vid, {})
+        label = info.get("title") or caption or vid
+        author = info.get("author", "")
+        author_cell = html.escape(author)
+        if author and info.get("author_url"):
+            author_cell = '<a href="%s">%s</a>' % (html.escape(info["author_url"]), html.escape(author))
         rows.append(
             '<tr><td><a href="https://www.youtube.com/watch?v=%s">%s</a>'
-            '<br><span class="size">%s</span></td><td>%s</td></tr>'
-            % (vid, label, vid, html.escape(", ".join(sorted(pages))))
+            '<br><span class="size">%s</span></td><td>%s</td><td>%s</td></tr>'
+            % (vid, html.escape(label), vid, author_cell,
+               html.escape(", ".join(sorted(pages))))
         )
 
     with open(os.path.join(ROOT, "videos.html"), "w", encoding="utf-8") as fh:
