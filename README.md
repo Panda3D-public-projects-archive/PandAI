@@ -19,7 +19,8 @@ at the repo root).
 
 | Path | Contents |
 | --- | --- |
-| `index.html`, `videos.html` | Landing page and demo-video index for the published site |
+| `COMMUNITY-NOTES.md` | Bugs, workarounds and design notes gathered from the forum and Discord |
+| `index.html`, `videos.html`, `notes.html` | Landing page, demo-video index and rendered notes |
 | `site/wiki/` | The 2016–2020 Google Sites documentation, 22 pages |
 | `site/etc2010/` | The original 2010 ETC project site, 8 pages |
 | `archive/raw/` | The verbatim archived HTML both mirrors were built from, unmodified |
@@ -64,6 +65,37 @@ The 2010–2012 archives are kept separate because they are **different builds**
 duplicates, even where a filename repeats: for example the 2012 `StaticObstacleDemo.zip`
 and the wiki's copy differ. Four files were byte-identical across both sites and are
 stored once.
+
+## Community knowledge
+
+[`COMMUNITY-NOTES.md`](COMMUNITY-NOTES.md) collects what the archived documentation
+does not tell you, gathered from the Panda3D forum (2009–2025) and Discord: the known
+bugs and their workarounds, what the navmesh pipeline actually requires, the
+`navmesh.csv` format, design explanations from the authors, and the project's timeline.
+Everything there is attributed and linked, and claims that were never confirmed are
+marked as such.
+
+Two findings worth pulling out here:
+
+- **The surviving Blender exporter expects your mesh on the X-Z plane**, not the X-Y
+  plane the Panda3D manual documents. The manual describes an August 2010 rebuild that
+  was only ever hosted on the author's personal site and was never archived — it is
+  lost. Both surviving copies are byte-identical and are the earlier X-Z build, which
+  is verifiable in `BlenderMeshGen/pythonMeshGen/BlenderMeshGen.py`. This resolves a
+  contradiction that confused people on the forum for years.
+- **AnimateDream's 2011 overhaul fork is not lost.** The link given on the forum,
+  `github.com/AnimateDream/PandAI`, 404s because the account was renamed; the work
+  survives at [StephenLujan/PandAI](https://github.com/StephenLujan/PandAI), and
+  includes a copy of the pre-integration CVS source.
+
+If you want to *use* PandAI today rather than study it, start from
+[rayanalysis/pandai-samples](https://github.com/rayanalysis/pandai-samples) — an active
+rewrite of the sample programs with modern navmesh generation.
+
+This archive also supplies the files requested in
+[panda3d/panda3d#1649](https://github.com/panda3d/panda3d/issues/1649), an open issue
+reporting that the PandAI links in the Panda3D manual are dead and that the navmesh
+converter source is lost.
 
 ## Sources
 

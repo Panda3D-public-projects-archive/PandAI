@@ -19,6 +19,8 @@ import re
 import shutil
 from html.parser import HTMLParser
 
+import render_notes   # sibling module; tools/ is on sys.path as the script directory
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW_CMU = os.path.join(ROOT, "archive", "raw", "etc-cmu")
 RAW_SITES = os.path.join(ROOT, "archive", "raw", "google-sites")
@@ -495,6 +497,7 @@ def build():
 
     print("built %d pages" % count)
     build_video_index()
+    render_notes.build()
 
 
 if __name__ == "__main__":
