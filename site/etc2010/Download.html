@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download &middot; PandAI Archive</title>
+<link rel="stylesheet" href="../../assets/css/site.css">
+</head>
+<!-- rebuilt by tools/build_site.py -->
+<body>
+<header class="topbar">
+  <a class="brand" href="../../index.html">
+    <img src="../../assets/img/brand/PANDAILogo_new.png" alt="">
+    <span>PandAI Archive</span>
+  </a>
+  <nav class="edition">
+    <a href="../wiki/index.html">2016&ndash;2020 wiki</a>
+    <a href="../etc2010/index.html" class="on">2010 ETC site</a>
+  </nav>
+</header>
+<div class="banner">
+  Archived copy of a site that is no longer online &mdash;
+  <a href="https://web.archive.org/web/20170123102252/https://etc.cmu.edu/projects/pandai/index.html">original snapshot on the Wayback Machine</a>.
+</div>
+<nav class="sectionnav"><a href="index.html">Home</a><a href="Team.html">Team</a><a href="Research.html">Research</a><a href="Community.html">Community</a><a href="Gallery.html">Gallery</a><a href="Pathfinding.html">Pathfinding</a><a href="Download.html" class="on">Download</a><a href="aitypes.html">AI Types</a></nav>
+<main class="content">
+<h1>Download</h1>
+
+  <div id="header"></div>
+  <div id="mainContent">
+        
+
+      <p>&nbsp;</p>
+
+<p>&nbsp;</p>
+    <p align="center"><strong><FONT COLOR="#FFFF00">INSTALLATION FOR PANDAI v1.0</font></strong></p>
+    <hr />
+    <p align="center">&nbsp;</p>
+    <p>Following are the preliminary steps for using the Pandai  library:</p>
+    <ol>
+      <li>Download <strong><FONT COLOR="#00cc99">PandaiV1.0.zip</font></strong> from <a href="../../HistoricalVersions/etc-cmu-2010-2012/Pandai_v1.0.zip"><strong>HERE</strong></a></li>
+      <li>Unzip  the file and you should find <strong><FONT COLOR="#00cc99">libpandaai.dll</font>.</strong></li>
+      <li>Copy <strong><FONT COLOR="#00cc99">libpandaai.dll and BuildDLL.bat</font></strong> to  <strong><FONT COLOR="#00cc99">${Your  Panda3D Installation}\bin\</font></strong></li>
+      Eg:  C:\Panda3D-1.6.2\bin\
+      <li>Run <strong><font color="#00cc99"> BuildDLL.bat</font></strong></li>
+    </ol>
+    <p class="blah">If  there are no errors you should be ready to use Pandai version 1.0 in Python.</p>
+    <p class="blah"><strong><FONT COLOR="#00cc99"><u>Navigation Mesh Generation Tool</u></font></strong></p>
+    <p>Download the <span class="blah">Navigation Mesh Generation Tool</span> for Pathfinding from <a href="../../HistoricalVersions/meshgen_v1.0_exec.zip">HERE</a></p>
+    <p><strong style="font-size: 14px; color: #C00;">Note: Since the egg file produced by Maya and Blender uses a different format from 3DSMax, you will need to first convert them into the same format (triangles) by using the following command:</strong></p>
+    <p><strong>C:\Panda3D-1.6.2\bin\egg-trans -C -o out.egg in.egg</strong></p>
+    <p><strong style="font-size: 14px; color: #C00;"> The egg file that is thus generated should be passed to our Navigation Mesh Generation Tool.</strong></p>
+    <p><strong><u>C++ Framework Code</u></strong></p>
+    <p class="blah"><strong style="font-size: 14px; color: #963;">Note: If you would like to see our C++ source code, you can download it along with the Doxygen documentation  <a href="../../HistoricalVersions/Pandai_v1.0_src.zip">HERE</a></strong></p>
+    <p class="blah"><strong style="font-size: 14px; color: #963;">Note: If you would like to see our mesh generation C++ source code, you can download it  <a href="../../HistoricalVersions/meshgen_v1.0_src.zip">HERE</a></strong></p>
+<hr />
+<p align="center"><strong><FONT COLOR="#FFFF00">Using Steering Behaviors in Python</font></strong></p>
+    <hr />
+    <p align="center">&nbsp;</p>
+    <p align="center"><strong style="color: #963; font-size: 14px;">(Note: the structure has been changed a bit since the last release)</strong><br />
+    </p>
+<p>In  your <strong>python </strong>code,</p>
+<ul>
+  <li>You will need to import the library:</li>
+</ul>
+<p>                <strong><FONT COLOR="#00cc99">from libpandaai import *</font></strong></p>
+<ul>
+  <li>Then you will have to create an object of the AIWorld  class:</li>
+</ul>
+<p><strong>	<FONT COLOR="#00cc99"> aiWorld = AIWorld(render)</font></strong></p>
+<ul>
+  <li>Then you will have to create an object of the AICharacter  class:</li>
+</ul>
+<p><strong> <font color="#00cc99">aiChar = AICharacter(string Character_name, NodePath model_nodepath, double mass, double movement_force, double maximum_force)</font></strong></p>
+<p>These parameters will determine how your character moves in the world.</p>
+<ul>
+  <li>Then you will have to attach this character to your AIWorld:</li>
+</ul>
+<p><strong> <font color="#00cc99">aiWorld.addAiChar(aiChar) </font></strong>//<strong> Note:</strong> aiWorld and aiChar used from above.</p>
+<ul>
+  <li>Now you will need to get a handle to the steering behaviors of the AICharacter:</li>
+</ul>
+<p><FONT COLOR="#00cc99"><strong> aiBehaviors = aiChar.getAiBehaviors()    </strong></font></p>
+<ul>
+  <li>With this handle all the 7 steering behaviors can be called as such:</li>
+  </ul>
+<p>&nbsp;</p>
+<hr />
+<p><strong>NOTE: </strong></p>
+<p>All the behaviors take a priority value which will be explained in detail after their descriptions.</p>
+<p>Also, the movement forces are defined in the character above and there are helper functions to modify them.</p>
+<hr />
+<p>&nbsp;</p>
+<p><FONT COLOR="#33ccff"><strong>SEEK:</strong></font></p>
+<p><strong><font color="#00cc99"> aiBehaviors.seek(NodePath target, int priority)</font></strong></p>
+<p><strong><font color="#00cc99">aiBehaviors.seek(Vec3 position, int priority)</font></strong></p>
+<p>'Seek' takes the target or a position to seek. Seek's direction is calculated only during the first instance of the call and so is more efficient than pursuit, if all you want is an object to go to a point.</p>
+<p>&nbsp;</p>
+<p><FONT COLOR="#33ccff"><strong>FLEE:</strong></font></p>
+<p><strong><font color="#00cc99">aiBehaviors.flee(NodePath target, double panic_distance, double relax_distance, int priority)</font></strong></p>
+<p><strong><font color="#00cc99">aiBehaviors.flee(Vec3 position, double panic_distance, double relax_distance, int priority)</font></strong></p>
+<p>'Flee' takes in a target or a position to be fled away from; this position should be static. (For moving objects use Evade). </p>
+<p><strong>Panic Distance</strong> is the radius of detection.</p>
+<p><strong>Relax Distance</strong> is the distance away from the panic distance after which the object should stop fleeing once flee has been initiated. </p>
+<p>&nbsp;</p>
+<p><FONT COLOR="#33ccff"><strong>PURSUE:</strong></font></p>
+<p><strong><font color="#00cc99"> aiBehaviors.pursue(NodePath target, int priority)</font></strong></p>
+<p>'Pursue' takes  the target to be pursued. The direction is continuously calculated here and this behavior would represent a continuous seeker or follower.</p>
+<p>&nbsp;</p>
+<p><FONT COLOR="#33ccff"><strong>EVADE:</strong></font></p>
+<p><strong><font color="#00cc99">aiBehaviors.evade(NodePath target, double panic_distance, double relax_distance, int priority)</font></strong></p>
+<p>'Evade' takes in a target to be fled away from, which can be moving. </p>
+<p><strong>Panic Distance</strong> is the radius of detection.</p>
+<p><strong>Relax Distance</strong> is the distance away from the panic distance where the object should stop fleeing once flee has been initiated. </p>
+<p>&nbsp;</p>
+<p><FONT COLOR="#33ccff"><strong>ARRIVAL:</strong></font> (Works with seek and pursuit only for now)</p>
+<p><strong><font color="#00cc99">aiBehaviors.arrival(double distance)</font></strong></p>
+<p>'Arrival' is a behavior which is usually used with seek or pursuit so that the object slows down on approach to its target. </p>
+<p><strong>Distance</strong> is the distance at which to start arrival at.</p>
+<p>&nbsp;</p>
+<p><font color="#33ccff"><strong>WANDER:</strong></font></p>
+<p><strong><font color="#00cc99">aiBehaviors.wander(double wander_radius, int flag, double aoe, int priority)</font></strong></p>
+<p>'Wander' is a behavior to set an AI Character to move around an environment realistically with no particular goal direction. </p>
+<p><strong>Wander Radius</strong> is the radius which controls the degree of wandering (representative of a guiding circle infront of the AI Character)</p>
+<p><strong>Flag </strong>is a value which can take 4 values, 1 for each plane(0  – XY, 1 – YZ, 2 – XZ, 3 – XYZ wandering) . Default is XY wander</p>
+<p><strong>AOE</strong> is area of effect and specifies a radius within which the wander target stays to wander.</p>
+<p>&nbsp;</p>
+<p><font color="#33ccff"><strong>FLOCK:</strong></font></p>
+
+
+<p>// To create the flock</p>
+<p><strong><font color="#00cc99">flockObject = Flock(unsigned int flock_id, double vcone_angle, double vcone_radius, unsigned int cohesion_wt, unsigned int separation_wt, unsigned int alignment_wt)</font></strong></p>
+<hr />
+<p>// To add your AI Character to the above created flock</p>
+<p><strong><font color="#00cc99">flockObject.addAiChar(aiChar)</font></strong> //aiChar was defined above</p>
+<p><strong><font color="#00cc99">aiBehaviors.flock(int priority)</font></strong></p>
+<hr />
+<p>// After all the AI Characters are added to the flock, add the flock to the world</p>
+<p><strong><font color="#00cc99">aiWorld.addFlock(flockObject)</font></strong></p>
+<hr />
+<p>&nbsp;</p>
+<p>'Flock' is a behavior which allows a character to move in a group of AI characters realistically. </p>
+<p><strong>Flock id</strong> is a value identifying the flock.</p>
+<p><strong>VCone Angle</strong> is the visibility angle of the character (represented by a cone around it)</p>
+<p><strong>VCone Radius</strong> is the length of the visibility cone.</p>
+<p><strong>Separation Weight</strong>, <strong>Cohesion Weight</strong> and <strong>Alignment Weight</strong> is the amount of separation force that contributes to the overall flocking behavior.</p>
+<p>Some <strong>standard values</strong> to start you off with:</p>
+<table cellspacing="0" cellpadding="0">
+  <col width="101" />
+  <col width="114" />
+  <col width="131" />
+  <col width="145" />
+  <col width="127" />
+  <col width="139" />
+  <tr>
+    <td nowrap="nowrap">Type</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>vcone_angle</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>vcone_radius</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>separation_wt</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>cohesion_wt</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td> alignment_wt</td>
+    </tr>
+  <tr>
+    <td nowrap="nowrap">Normal Pack</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">270</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">10</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">2</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">4</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">1</td>
+    </tr>
+  <tr>
+    <td nowrap="nowrap">Loose Pack</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">180</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">10</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">2</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">4</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">5</td>
+    </tr>
+  <tr>
+    <td nowrap="nowrap">Tight Pack</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">45</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">5</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">2</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">4</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">&nbsp;</td>
+    <td align="right">5</td>
+    </tr>
+</table>
+<p>You could try experimenting with your own values to customize your flock.</p>
+<p>&nbsp;</p>
+<p><font color="#33ccff"><strong>OBSTACLE AVOIDANCE:</strong></font></p>
+<p><strong><font color="#00cc99">aiBehaviors.obstacleAvoidance(float feeler_length)</font></strong></p>
+<p><br />
+  Obstacle Avoidance is a behavior to set an AI Character to move around an  environment avoiding the obstacles found in it in a realistic manner.</p>
+<p><br />
+  <strong>Feeler length</strong> is the range at  which the obstacle can be detected by the AI Character(Note : This does not  correspond to actual length 1.0 in render. The algorithm computes the feeler’s  length based on AI Character’s speed and size and also the Obstacle size and  the feeler length which is input to it simply a multiplier)</p>
+<p><br />
+  For the algorithm to work, the obstacles need to be added to the world like  this</p>
+<p><strong><font color="#00cc99">
+  aiWorld.addObstacles(NodePath   obstacle)</font></strong></p>
+<p><br />
+  The Obstacles can be input as NodePath’s which the algorithm uses to  generate the appropriate force to avoid it.</p>
+<p><br />
+  Also you can remove an obstacle at any time needed by using<br />
+<p><strong><font color="#00cc99">
+  aiWorld.removeObstacle(NodePath obstacle)</font></strong></p>
+<p>&nbsp;</p>
+<p><font color="#33ccff"><strong>PATH FOLLOW:</strong></font></p>
+<p><strong><font color="#00cc99">aiBehaviors.pathFollow(int priority)</font></strong><br />
+  </p>
+<p><strong><font color="#00cc99">aiBehaviors.addToPath(Vec3 position)</font></strong><br />
+  </p>
+  <p><strong><font color="#00cc99">aiBehaviors.startFollow()</font></strong></p>
+<p><br />
+  <strong>position</strong> is a point in 3D space which falls on the path which the AI  Character needs to traverse. (Note: that you need to add multiple positions to  create a path say for example Vec3(-10,10,0) Vec3(0,0,0) Vec3(10,10,0)  Vec3(-10,10,0) will generate a triangular path in the XY plane)</p>
+<p>Note the addToPath works backwards. So, your last call to addToPath will be your first position your AICharacter will go to.</p>
+<p>&nbsp;</p>
+<p><font color="#33ccff"><strong>PATH FINDING:</strong></font></p>
+<p><strong><font color="#00cc99">aiBehaviors.initPathFind(string filename)</font></strong></p>
+<p><br />
+  This function activates the path finding with A* for the AI Character. <br />
+  Filename is the name of the file that is generated by the Mesh  Generator</p>
+<p>(Note: The file is in .csv format)</p>
+
+<p><strong><font color="#00cc99">aiBehaviors.pathFindTo(NodePath np, string type)</font></strong></p>
+  <p><strong><font color="#00cc99">aiBehaviors.pathFindTo(Vec3 pos, string type)</font></strong></p>
+<p><br />
+  This function finds the best path via A* algorithm for the AI Character to  reach the target destination and then invokes the path follower to make the  object follow the path. </p>
+<p><br />
+  It can accept both NodePath and Vec3 as input position. NodePath is used  when the destination is not static. Vec3 is used when the destination is going  to be static.</p>
+<p><br />
+  If the AI Character needs to pathfind continuously(say after he has finished  traversing to a position, a new destination is acquired ) then input string  type as “addPath” else leave as default.</p>
+
+<p><strong><font color="#00cc99">addStaticObstacle(NodePath obstacle);</font></strong></p>
+<p><br />
+  This function is used if the scripter wants to add Obstacles after the mesh  has been generated (Say a stack of boxes fall down and blocks the way) to  trigger events. It adds a static obstacle to the navigation mesh and pathfinds  around it.</p>
+<p><strong><font color="#00cc99">addDynamicObstacle(NodePath obstacle);</font></strong></p>
+<p><br />
+  This functions work similar to addStaticObstacle except that in this case  the obstacles can move and are not static.</p>
+<hr />
+<hr />
+<p align="center"><strong><FONT COLOR="#FFFF00">Priority</font></strong></p>
+<hr />
+<p>&nbsp;</p>
+<p><strong>Priority</strong> is a new feature which we have added to our behavior system. This feature allows a user to determine the resultant force when there is a conflict between two or more behaviors.</p>
+<p><font color="#00cc99">For example:</font> Incase 'A' is pursuing 'T', 'B' is pursuing 'T' and 'A' is also evading 'B'.</p>
+<p>This will result in a conflict when A is close to B as it has to decide whether to pursue or evade. This conflict can be solved by determining the priority.</p>
+<p>Priority is a value <font color="#00cc99"> between 0 and 1 </font> which you specify in your behavior functions.</p>
+<p><font color="#00cc99">For example: </font> If pursue had a priority of 0.1 and evade had a priority of 1.0, then on conflict the AICharacter will definitely evade more than pursue.<br />
+</p>
+<p align="justify">&nbsp;</p>
+<hr />
+<p align="center"><strong><font color="#FFFF00">AIWorld Update</font></strong></p>
+<hr />
+<p>&nbsp;</p>
+<p>Finally, you will need to run the AIWorld update which is a global AI update for every character in the world, <em><strong><u>in a continuous task</u></strong></em>. </p>
+<p><strong><font color="#00cc99">aiWorld.update()</font></strong></p>
+<p>Note how now there is only one function for our entire AI that you need to use a task for and so it is way more convenient.</p>
+<p>Doing the above steps correctly will ensure that Pandai will work properly in your world.</p>
+<p>&nbsp;</p>
+<hr />
+<p align="center"><strong><font color="#FFFF00">Helper functions</font></strong></p>
+<hr />
+<p>&nbsp;</p>
+<p>*This is a section we made  to ease the job of scripters using our AIs:</p>
+<p>&nbsp;</p>
+<p><strong><u>For the AICharacter class:</u></strong></p>
+
+<p><font color="#00cc99"><strong>double getMass();<br />
+void setMass(double m);</strong></font></p>
+<p><font color="#00cc99"><strong> LVecBase3f getVelocity();</strong></font></p>
+<p><font color="#00cc99"><strong> double getMaxForce();<br />
+  void setMaxForce(double max_force); </strong></font></p>
+<p><font color="#00cc99"><strong> NodePath getNodePath();<br />
+  void setNodePath(NodePath np); </strong></font></p>
+<p>&nbsp;</p>
+
+<strong><u>For the AIBehaviors class:</u></strong>
+<p><font color="#00cc99"><strong>aiBehaviors.behaviorStatus(string AIName)</strong></font></p>
+<p>This function returns the status of an AI Behavior whether it is active,  paused, done or disabled. Returns  -1 if  an invalid string is passed.</p>
+<p>*Note for pathfinding status, use pathfollow as the string name, since pathfinding is a subset of pathfollow.</p>
+<p>&nbsp;</p>
+<p>To <strong>remove</strong> any AI after their call has been instantiated.</p>
+
+<p><font color="#00cc99"><strong>void removeAi(string &quot;AIName&quot;);</strong></font></p>
+<p>*Note for pathfinding removal, use pathfollow as the string name, since pathfinding is a subset of pathfollow.</p>
+<p>&nbsp;</p>
+<p>To <strong>pause</strong> or <strong>resume</strong> any AI after their call has been instantiated.</p>
+<p><font color="#00cc99"><strong>void pauseAi(string &quot;AIName&quot;);</strong></font></p>
+<p><font color="#00cc99"><strong>void resumeAi(string &quot;AIName&quot;);</strong></font></p>
+<p>where <strong>AIName</strong> refers to:</p>
+
+<blockquote>
+  <p>&quot;all&quot; <font color="#00cc99">- removes all the Ai's</font></p>
+  <p>&quot;seek&quot;<font color="#00cc99"> - removes seek</font></p>
+  <p>&quot;flee&quot; <font color="#00cc99">- removes flee</font></p>
+  <p>&quot;pursue&quot; <font color="#00cc99">- removes arrival</font></p>
+  <p>&quot;evade&quot; <font color="#00cc99">- removes pursuit</font></p>
+  <p>&quot;arrival&quot; <font color="#00cc99">- removes evade</font></p>
+  <p>&quot;wander&quot; <font color="#00cc99">- removes wander</font></p>
+  <p>&quot;flock&quot; <font color="#00cc99">- removes flock</font></p>
+  <p>&quot;obstacle_avoidance&quot; <font color="#00cc99">- removes obstacle_avoidance</font></p>
+  <p>&quot;pathfollow&quot; <font color="#00cc99">- removes pathfollow</font></p>
+  <p>&nbsp;</p>
+  </blockquote>
+  <p><strong><u>For the AIWorld class:</u></strong>  </p>
+  <p><font color="#00cc99"><strong>void addAiChar(AICharacter aiChar);</strong></font>
+    </p>
+    <p><font color="#00cc99"><strong>void removeAiChar(string name);</strong></font>
+    </p>
+    <p><font color="#00cc99"><strong>void addFlock(Flock *flock);</strong></font>
+    </p>
+    <p><font color="#00cc99"><strong>void flockOff(int ID);</strong></font>
+    </p>
+    <p><font color="#00cc99"><strong>void flockOn(int ID);</strong></font>
+    </p>
+    <p><font color="#00cc99"><strong>Flock getFlock(int ID);</strong></font>
+    </p>
+    <p><font color="#00cc99"><strong>addObstacle(NodePath obstacle);</strong></font>
+    </p>
+    <p><font color="#00cc99"><strong>removeObstacle(NodePath obstacle);</strong></font>
+    </p>
+    <p><font color="#00cc99"><strong>printList();</strong></font>
+    </p>
+    <p><font color="#00cc99"><strong>update();</strong></font>      <font color="#00cc99"></font>    </p>
+    <p>&nbsp;</p>
+    <hr />
+    <p align="center"><strong><font color="#FFFF00">Demos for v1.0:</font></strong></p>
+    <hr />
+    <p><a href="../../HistoricalVersions/etc-cmu-2010-2012/fish_demo.zip">Fish Demo</a> - Thanks to Rachel Berkowitz for the background music</p>
+    <p><a href="../../HistoricalVersions/samples/StaticObstacleDemo.zip">Dynamic Obstacle Addition Demo</a></p>
+    <p><a href="../../HistoricalVersions/samples/DynamicObstacleDemo.zip">Dynamic Obstacle Avoidance Demo</a></p>
+    <p><a href="../../HistoricalVersions/etc-cmu-2010-2012/PF_roaming_ralph.zip">Roaming Ralph with Pathfinding</a></p>
+<hr />
+<p align="center"><strong><font color="#FFFF00">Older versions and demos:</font></strong></p>
+<hr />
+<p><a href="../../HistoricalVersions/etc-cmu-2010-2012/PandaAIV0.5.zip">PandaiV0.5</a> and <a href="../../HistoricalVersions/etc-cmu-2010-2012/PandAI_v0.5_source.zip">PandaiV0.5_Src_Code</a></p>
+<hr />
+<p><a href="../../HistoricalVersions/etc-cmu-2010-2012/PandaiV0.2.zip">PandaiV0.2</a> and <a href="../../HistoricalVersions/etc-cmu-2010-2012/0.2 Documentation.docx">Documentation</a></p>
+<p><font color="#00cc99"><a href="../../HistoricalVersions/etc-cmu-2010-2012/FleeDemo.zip">Seek and Flee EGG Demo</a></font> (for v0.2)</p>
+<hr />
+<p><a href="../../HistoricalVersions/etc-cmu-2010-2012/PandaAI_1.0.zip">PandaiV0.1</a></p>
+<hr />
+<!-- end #mainContent -->
+  </div>
+  <div id="footer">
+    <p align="center">&nbsp;</p>
+    <p align="center">&nbsp;</p>
+    <p align="center">:: Team Pandai :: </p>
+  <!-- end #footer --></div>
+<!-- end #container -->
+</main>
+<footer class="foot">
+  <p>PandAI was built at the Carnegie Mellon Entertainment Technology Center. This is an
+  unofficial preservation mirror; all content belongs to its original authors.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PandAI Archive &middot; game AI for Panda3D</title>
+<meta name="description" content="Preservation mirror of PandAI, the game-AI library for Panda3D built at the Carnegie Mellon Entertainment Technology Center.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img src="assets/img/brand/PANDAILogo_new.png" alt="">
+    <span>PandAI Archive</span>
+  </a>
+  <nav class="edition">
+    <a href="site/wiki/index.html">2016&ndash;2020 wiki</a>
+    <a href="site/etc2010/index.html">2010 ETC site</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1 class="sr-only">PandAI</h1>
+  <p class="lede">
+    <img class="initial" src="assets/img/brand/PANDAILogo_new.png" alt="">
+    A game-AI library for <a href="https://www.panda3d.org/">Panda3D</a> &mdash; steering,
+    flocking, obstacle avoidance, navmesh pathfinding &mdash; built at Carnegie Mellon's
+    Entertainment Technology Center. Both project sites are gone; this mirror rebuilds
+    them, with every recoverable release and demo.
+  </p>
+</section>
+
+<div class="cards">
+  <a class="card" href="site/wiki/index.html">
+    <h2>The wiki &rarr;</h2>
+    <p>The later Google Sites documentation (captured 2020): getting started, every
+       steering behaviour, pathfinding and the mesh generator. 22 pages, with the
+       original demo videos embedded.</p>
+  </a>
+  <a class="card" href="site/etc2010/index.html">
+    <h2>The 2010 ETC site &rarr;</h2>
+    <p>The original project site: team, research write-ups, gallery, AI types and the
+       first-generation downloads. 8 pages.</p>
+  </a>
+  <a class="card" href="#downloads">
+    <h2>Downloads &rarr;</h2>
+    <p>28 recovered archives &mdash; library releases v0.2 through v1.0, source drops,
+       the Blender mesh generator and every sample project.</p>
+  </a>
+  <a class="card" href="notes.html">
+    <h2>Community field notes &rarr;</h2>
+    <p>What the documentation doesn't tell you: known bugs and their workarounds, how
+       the navmesh pipeline actually behaves, and design notes from the authors &mdash;
+       gathered from fifteen years of forum and Discord threads.</p>
+  </a>
+  <a class="card" href="#source">
+    <h2>Source in this repo &rarr;</h2>
+    <p>Unpacked and browsable: the 12 Python examples, the mesh generator C++ source
+       and the Blender navmesh exporter.</p>
+  </a>
+  <a class="card" href="videos.html">
+    <h2>Demo videos &rarr;</h2>
+    <p>All 25 demo reels the two sites embedded, indexed with direct links. Hosted on
+       YouTube, not mirrored here &mdash; every one was still reachable when this
+       archive was assembled.</p>
+  </a>
+</div>
+
+<section class="section" id="source">
+  <h2>Source included in this repository</h2>
+  <div class="tablewrap">
+  <table class="filetable">
+    <tr><th>Path</th><th>What it is</th></tr>
+    <tr>
+      <td><a href="examples/">examples/</a></td>
+      <td>Twelve runnable Python samples &mdash; seek, flee, pursue, evade, wander, flock,
+          path follow, static and dynamic obstacle avoidance, and uneven-terrain
+          pathfinding &mdash; with their models and textures. Updated to Python 3 /
+          modern <code>ShowBase</code> style.</td>
+    </tr>
+    <tr>
+      <td><a href="meshgen_v1.0_src/">meshgen_v1.0_src/</a></td>
+      <td>C++ source for the standalone navigation-mesh generator
+          (<code>aiMeshGenerator</code>, <code>meshNode</code>).</td>
+    </tr>
+    <tr>
+      <td><a href="BlenderMeshGen/">BlenderMeshGen/</a></td>
+      <td>Python navmesh exporter driven from Blender geometry; emits the
+          <code>navmesh.csv</code> the pathfinder consumes. Includes test .blend/.egg planes.</td>
+    </tr>
+    <tr>
+      <td><a href="archive/raw/">archive/raw/</a></td>
+      <td>The verbatim archived HTML both mirrors were rebuilt from, kept unmodified.</td>
+    </tr>
+  </table>
+  </div>
+</section>
+
+<section class="section" id="downloads">
+  <h2>Downloads</h2>
+  <p>Recovered from the Wayback Machine. Everything below is a Panda3D-era archive and is
+     preserved as it was distributed &mdash; it is not expected to run unmodified against
+     current Panda3D.</p>
+
+  <h3>Library releases and tools</h3>
+  <div class="tablewrap">
+  <table class="filetable">
+    <tr><th>File</th><th>Notes</th><th>Size</th></tr>
+    <tr><td><a href="HistoricalVersions/etc-cmu-2010-2012/PandaiV0.2.zip">PandaiV0.2.zip</a></td><td>Earliest surviving release</td><td class="size">32K</td></tr>
+    <tr><td><a href="HistoricalVersions/etc-cmu-2010-2012/PandaAIV0.5.zip">PandaAIV0.5.zip</a></td><td>v0.5 binary</td><td class="size">48K</td></tr>
+    <tr><td><a href="HistoricalVersions/etc-cmu-2010-2012/PandAI_v0.5_source.zip">PandAI_v0.5_source.zip</a></td><td>v0.5 source</td><td class="size">4.4M</td></tr>
+    <tr><td><a href="HistoricalVersions/etc-cmu-2010-2012/PandaAI_1.0.zip">PandaAI_1.0.zip</a></td><td>v1.0 build</td><td class="size">28K</td></tr>
+    <tr><td><a href="HistoricalVersions/etc-cmu-2010-2012/Pandai_v1.0.zip">Pandai_v1.0.zip</a></td><td>v1.0 build (second packaging)</td><td class="size">72K</td></tr>
+    <tr><td><a href="HistoricalVersions/Pandai_v1.0_src.zip">Pandai_v1.0_src.zip</a></td><td>v1.0 full source</td><td class="size">9.4M</td></tr>
+    <tr><td><a href="HistoricalVersions/BlenderMeshGen.zip">BlenderMeshGen.zip</a></td><td>Blender navmesh exporter</td><td class="size">684K</td></tr>
+    <tr><td><a href="HistoricalVersions/meshgen_v1.0_src.zip">meshgen_v1.0_src.zip</a></td><td>Mesh generator source</td><td class="size">12K</td></tr>
+    <tr><td><a href="HistoricalVersions/meshgen_v1.0_exec.zip">meshgen_v1.0_exec.zip</a></td><td>Mesh generator executable</td><td class="size">24K</td></tr>
+    <tr><td><a href="HistoricalVersions/etc-cmu-2010-2012/0.2 Documentation.docx">0.2 Documentation.docx</a></td><td>Original v0.2 manual</td><td class="size">16K</td></tr>
+  </table>
+  </div>
+
+  <h3>Sample projects <span style="font-weight:400;color:var(--muted)">(from the 2016&ndash;2020 wiki)</span></h3>
+  <div class="tablewrap">
+  <table class="filetable">
+    <tr><th>File</th><th>Demonstrates</th><th>Size</th></tr>
+    <tr><td><a href="HistoricalVersions/samples/PandAIBasicTutorial.zip">PandAIBasicTutorial.zip</a></td><td>Getting started</td><td class="size">300K</td></tr>
+    <tr><td><a href="HistoricalVersions/samples/PandAISeekExample.zip">PandAISeekExample.zip</a></td><td>Seek</td><td class="size">300K</td></tr>
+    <tr><td><a href="HistoricalVersions/samples/PandAIFleeExample.zip">PandAIFleeExample.zip</a></td><td>Flee</td><td class="size">300K</td></tr>
+    <tr><td><a href="HistoricalVersions/samples/PandAIPursueExample.zip">PandAIPursueExample.zip</a></td><td>Pursue</td><td class="size">300K</td></tr>
+    <tr><td><a href="HistoricalVersions/samples/PandAIEvadeExample.zip">PandAIEvadeExample.zip</a></td><td>Evade</td><td class="size">300K</td></tr>
+    <tr><td><a href="HistoricalVersions/samples/PandAIArrivalExample.zip">PandAIArrivalExample.zip</a></td><td>Arrival</td><td class="size">300K</td></tr>
+    <tr><td><a href="HistoricalVersions/samples/PandAIWanderExample.zip">PandAIWanderExample.zip</a></td><td>Wander</td><td class="size">300K</td></tr>
+    <tr><td><a href="HistoricalVersions/samples/PandAIFlockExample.zip">PandAIFlockExample.zip</a></td><td>Flocking</td><td class="size">300K</td></tr>
+    <tr><td><a href="HistoricalVersions/samples/PandAIPathFollowTutorial.zip">PandAIPathFollowTutorial.zip</a></td><td>Path following</td><td class="size">300K</td></tr>
+    <tr><td><a href="HistoricalVersions/samples/PandAIObstacleAvoidanceExample.zip">PandAIObstacleAvoidanceExample.zip</a></td><td>Obstacle avoidance</td><td class="size">304K</td></tr>
+    <tr><td><a href="HistoricalVersions/samples/StaticObstacleDemo.zip">StaticObstacleDemo.zip</a></td><td>Pathfinding, static obstacles</td><td class="size">6.8M</td></tr>
+    <tr><td><a href="HistoricalVersions/samples/DynamicObstacleDemo.zip">DynamicObstacleDemo.zip</a></td><td>Pathfinding, dynamic obstacles</td><td class="size">5.4M</td></tr>
+    <tr><td><a href="HistoricalVersions/samples/UnevenTerrainPathFinding.zip">UnevenTerrainPathFinding.zip</a></td><td>Pathfinding over uneven terrain</td><td class="size">3.1M</td></tr>
+  </table>
+  </div>
+
+  <h3>Demos <span style="font-weight:400;color:var(--muted)">(2010&ndash;2012 ETC site)</span></h3>
+  <p style="color:var(--muted);font-size:14px">
+    Earlier, separately-packaged builds. Where a name repeats above, these are
+    different archives, not duplicates.</p>
+  <div class="tablewrap">
+  <table class="filetable">
+    <tr><th>File</th><th>Notes</th><th>Size</th></tr>
+    <tr><td><a href="HistoricalVersions/etc-cmu-2010-2012/fish_demo.zip">fish_demo.zip</a></td><td>Flocking fish showcase</td><td class="size">8.5M</td></tr>
+    <tr><td><a href="HistoricalVersions/etc-cmu-2010-2012/FleeDemo.zip">FleeDemo.zip</a></td><td>Flee demo</td><td class="size">13M</td></tr>
+    <tr><td><a href="HistoricalVersions/etc-cmu-2010-2012/PF_roaming_ralph.zip">PF_roaming_ralph.zip</a></td><td>Pathfinding in Roaming Ralph</td><td class="size">3.1M</td></tr>
+    <tr><td><a href="HistoricalVersions/etc-cmu-2010-2012/StaticObstacleDemo.zip">StaticObstacleDemo.zip</a></td><td>Static obstacles, 2012 build</td><td class="size">6.7M</td></tr>
+    <tr><td><a href="HistoricalVersions/etc-cmu-2010-2012/DynamicObstacleDemo.zip">DynamicObstacleDemo.zip</a></td><td>Dynamic obstacles, 2012 build</td><td class="size">5.4M</td></tr>
+  </table>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>PandAI was created at the Carnegie Mellon Entertainment Technology Center by
+  Deepak Murali Chandrasekaran, Kyle Dolan, John Kolencheryl, Jy-Huey (Grace) Lin,
+  Srinavin Nair and Ruth Comley, advised by Mike Christel.</p>
+  <p>This is an unofficial preservation mirror assembled from
+  <a href="https://web.archive.org/web/20201022234250/https://sites.google.com/site/etcpandai/">Wayback Machine</a>
+  captures. All content remains the property of its original authors; it is reproduced here
+  only so that a piece of Panda3D history stays reachable.</p>
+</footer>
+
+</body>
+</html>

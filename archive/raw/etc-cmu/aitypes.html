@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PandAI</title>
+<style type="text/css">
+<!--
+body {
+	font: 100% Verdana, Arial, Helvetica, sans-serif;
+	background: #666666;
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #FFF;
+	background-color: #000000;
+}
+.oneColFixCtrHdr #container {
+	width: 800px;  /* using 20px less than a full 800px width allows for browser chrome and avoids a horizontal scroll bar */
+	background: #000000;
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	border: 1px solid #000000;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+}
+.oneColFixCtrHdr #header {
+	background: #000000; 
+	padding: 0 10px 0 20px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+}
+.oneColFixCtrHdr #header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 0px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+}
+.oneColFixCtrHdr #mainContent {
+	padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+	background: #000000;
+}
+.oneColFixCtrHdr #footer {
+	padding: 0 10px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+	background:#000000;
+}
+.oneColFixCtrHdr #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+}
+-->
+</style></head>
+
+<body background="About/background.jpg" bgcolor="#000000" text="#FFFFFF" link="#33CCFF" vlink="#33CCFF" class="oneColFixCtrHdr">
+
+<div id="container">
+  <div id="header"></div>
+  <div id="mainContent">
+    <p align="center"><img src="About/PANDAILogo_new.png" width="169" height="169" /></p>
+<div align="center"><strong><a href="index.html">Home</a> | <a href="Team.html">Team</a> | <a href="Research.html">Research</a> | <a href="Community.html"> Community</a> | <a href="Gallery.html">Gallery</a> | <a href="Pathfinding.html">Pathfinding</a> | <a href="Download.html">Download</a></strong> <strong>| <a href="aitypes.html">AI Types</a></strong></div>
+
+<p>&nbsp;</p>
+<h1 align="center"><strong>AI Types</strong></h1>
+<p>&nbsp;</p>
+<hr /> 
+      <p align="center"><FONT COLOR="#00cc99" style="font-size: x-large; color: #FF0; text-align: center;">Some Terms and Definitions</FONT></p>
+<hr />
+      <p align="center"><br />
+      </p>
+      <ul>
+        <li><FONT COLOR="#FF8040">Feature</FONT> - a prominent or conspicuous part or characteristic of a game A.I. behavior</li>
+      </ul>
+      <ul>
+        <li><FONT COLOR="#FF8040">Tuner</FONT> - aspects of a game A.I. behavior that can be easily adjusted by the Panda3D programmer      </li>
+      </ul>
+      <ul>
+        <li><font color="#FF8040">Non-player Character (NPC)</font> - character or object in the game that is controlled by the program and not the human player<br />
+      </li>
+      </ul>
+      <p>&nbsp;</p>
+      <hr />
+      <p align="center"><font color="#00cc99" style="font-size: x-large; color: #FF0; text-align: left;">Game A.I. Steering Behaviors</font></p>
+<hr />
+      <br />
+      <strong><FONT COLOR="#FF0000" style="font-size: large">1. Seek</FONT></strong><br />
+      <ul>
+        <li><FONT COLOR="#FF8040">Features</FONT>:
+    <ul>
+      <li>seeker's target is a static point</li>
+    </ul>
+  </li>
+  
+  <ul>
+    <li>seeking object accelerates till its force is equal to its max force and reaches target a quickly as possible </li>
+    <li>seeking object stops when it reaches its target</li>
+    <li>seeker always faces target</li>
+  </ul>
+</ul>
+<ul>
+  <li><FONT COLOR="#FF8040">Tuners</FONT>: </li>
+  
+  <ul>
+    <li>* All found in AICharacter</li>
+  </ul>
+</ul>
+<p>&nbsp;</p>
+<object width="721" height="377"><param name="movie" value="http://www.youtube.com/v/-UMeYgZLa8Q&hl=en&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999&border=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/-UMeYgZLa8Q&hl=en&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999&border=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="721" height="377"></embed></object>
+<p><strong>Video Description:</strong> Five NPCs (red) all <strong>SEEK</strong> their respective static targets, which are represented by yellow spheres dispersed throughout the 3-dimensional space. </p>
+<p>&nbsp;</p>
+<hr />
+<p>&nbsp;</p>
+<p><strong><FONT COLOR="#FF0000" style="font-size: large">2. Pursue</FONT></strong><br />
+</p>
+<ul>
+  <li><FONT COLOR="#FF8040">Features</FONT>:</li>
+  <ul>
+    <li>an advancement of seek; a continuous seek where the pursuing object constantly adjusts while tracking a moving object</li>
+    </ul>
+  </p>
+  <li><FONT COLOR="#FF8040">Tuners</FONT>:</li>
+  <ul>
+    
+    <li>* All found in AICharacter</li>
+    </ul>
+</ul>
+      <p>&nbsp;</p>
+<object width="721" height="377"><param name="movie" value="http://www.youtube.com/v/QdcbN3FLYVs&hl=en&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999&border=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/QdcbN3FLYVs&hl=en&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999&border=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="721" height="377"></embed></object>
+
+      <p><strong>Video Description:</strong> The two NPCs (red) <strong>PURSUE</strong> their respective wandering targets (blue NPCs).  </p>
+<p>&nbsp;</p>
+<hr />
+      <p>&nbsp;</p>
+      <p><strong><FONT COLOR="#FF0000" style="font-size: large">3. Flee</FONT></strong><br />
+      </p>
+      <ul>
+        <li><FONT COLOR="#FF8040">Features</FONT>:</li>
+        <ul>
+          <li>opposite of seek; object moves away from a static point (point of avoidance)<br />
+          </li>
+          <li>Fleeing object accelerates till its force is equal to its max force and moves away from the point of avoidance as quickly as possible</li>
+          <li>Fleeing object always faces away from the point of avoidance</li>
+          <li>Fleeing object stops fleeing once it has reached the &quot;Panic + Relax&quot; distance<br />
+          </li>
+        </ul>
+        </p>
+        <li><FONT COLOR="#FF8040">Tuners</FONT>:</li>
+        <ul>
+          <li>panic distance - detection radius of the AI object</li>
+          <li>relax distance - the distance to stop after flee has been started<br />
+          </li>
+          <li>* Others determined in AICharacter</li>
+        </ul>
+      </ul>
+      <p>&nbsp;</p>
+      <object width="721" height="377"><param name="movie" value="http://www.youtube.com/v/sXzzuK2Vnnk&hl=en&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999&border=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/sXzzuK2Vnnk&hl=en&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999&border=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="721" height="377"></embed></object>
+
+      <p><strong>Video Description:</strong>   Four NPCs (red) <strong>FLEE</strong> from different static points, which are represented by yellow spheres dispersed throughout the 3-dimensional space. </p>
+<p>&nbsp;</p>
+<hr />
+      <p>&nbsp;</p>
+      <p><strong><FONT COLOR="#FF0000" style="font-size: large">4. Evade</FONT></strong><br />
+        
+      <ul>
+        <li><FONT COLOR="#FF8040">Features</FONT>:</li>
+        <ul>
+          <li>an advancement of flee; evading object moves away from a moving object (object of avoidance) until it reaches the &quot;Panic + Relax&quot; distance          </li>
+        </ul>
+        </p>
+        <li><FONT COLOR="#FF8040">Tuners</FONT>:</li>
+        <ul>
+          <li>panic distance - detection radius of the AI object</li>
+          <li>relax distance - the distance to stop after flee has been started<br />
+          </li>
+          <li>* Others determined in AICharacter</li>
+        </ul>
+      </ul>
+      <p>&nbsp;</p>
+      <object width="721" height="377"><param name="movie" value="http://www.youtube.com/v/JchuRRHqPUQ&hl=en&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999&border=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/JchuRRHqPUQ&hl=en&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999&border=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="721" height="377"></embed></object>
+      <p><strong>Video Description:</strong>   The NPC (red) is set to <strong>EVADE</strong> the player-controlled character (blue) whenever it gets too close.  After evading a certain distance away from the blue character, the red character comes to a stop. </p>
+<p>&nbsp;</p>
+<hr />
+      <p>&nbsp;</p>
+      <p><strong><FONT COLOR="#FF0000" style="font-size: large">5. Arrival</FONT></strong>      </p>
+      <ul>
+        <li><FONT COLOR="#FF8040">Features</FONT>:
+          <ul>
+            <li>arriving object decelerates as it approaches its target (can be a static point or an object in motion)<br />
+            </li>
+          </ul>
+        </li>
+        
+        <ul>
+          <li>Can be used only with Seek and Pursue<br />
+          </li>
+        </ul> </p>
+        <li><FONT COLOR="#FF8040">Tuners</FONT>:</li>
+        <ul>
+          <li>distance from the target point after which it decelerates (braking distance)</li>
+        </ul>
+      </ul>
+      <p>&nbsp;</p>
+      <object width="721" height="377"><param name="movie" value="http://www.youtube.com/v/qLotOOFqRYk&hl=en&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999&border=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/qLotOOFqRYk&hl=en&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999&border=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="721" height="377"></embed></object>
+      <p><strong>Video Description:</strong>   The NPC (red) enacts the <strong>ARRIVAL</strong> behavior whenever it comes close to completing its pursuit of an invisible point located directly behind the player-controlled character (blue).  The fact that this “pursue point” is placed behind the blue character instead of centered within it, means that the NPC will arrive next to its target as opposed to directly over it. </p>
+<p>&nbsp;</p>
+<hr />
+      <p>&nbsp;</p>
+      <p><strong><font color="#FF0000" style="font-size: large">6. Wander</font></strong>      </p>
+      <ul>
+        <li><font color="#FF8040">Features</font>:
+          <ul>
+            <li>NPC traverses around the world with no particular goal<br />
+            </li>
+          </ul>
+        </li>
+        <ul>
+          <li>invisible &quot;wander sphere&quot; stems from the character out in front of it</li>
+          <li>NPC can be restricted to wandering around a designated region<br />
+          </li>
+        </ul>
+        <li><font color="#FF8040">Tuners</font>:</li>
+        <ul>
+          <li>size of the &quot;wander sphere&quot;</li>
+          <li>ability to lock an axis (x, y, or z) of the &quot;wander sphere&quot;</li>
+          <li>the restricted region (location and size) in which the NPC can wander</li>
+        </ul>
+      </ul>
+      <p>&nbsp;</p>
+      <object width="721" height="377"><param name="movie" value="http://www.youtube.com/v/jy6F6HnenoE&hl=en&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999&border=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/jy6F6HnenoE&hl=en&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999&border=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="721" height="377"></embed></object>
+      <p><strong>Video Description:</strong>   All NPCs (red) <strong>WANDER</strong> around the 3-dimensional space.  The wander behavior is caused by random points being generated within an invisible boundary in front of each NPC.  The NPC continuously seeks these random points, so that it appears to be wandering around aimlessly. </p>
+<p>&nbsp;</p>
+<hr />
+      <p>&nbsp;</p>
+      <strong><font color="#FF0000" style="font-size: large">7. Flock</font></strong>
+      <ul>
+        <li><font color="#FF8040">Features</font>:
+          <ul>
+            <li>group of NPCs moving together as a herd            
+              <ul>
+                <li>flocking behavior is a result of each NPC's awareness of its neighbors in the flock, which is determined by a &quot;visibility cone&quot; that stems from each individual NPC          
+                  <ul>
+                    <li>based on this NPC awareness level, three other behaviors act together  to produce the flock behavior:                
+                      <ol>
+                        <li><strong style="font-size: small">cohesion</strong> <span style="font-size: small">-- finds average position of neighbors and tries to move to that position</span></li>
+                        <li><strong style="font-size: small">separation</strong> -- <span style="font-size: small">object keeps a certain distance between itself and its neighbor</span></li>
+                        <li><span class="oneColFixCtrHdr" style="font-size: small"><strong>alignment</strong> -- finds average direction in which all neighbors are moving and tries to move in that  direction</span> </li>
+                      </ol>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <br />
+        </li>
+        <span style="font-size: medium">
+        </p>
+        </span>
+        <li><font color="#FF8040">Tuners</font>:</li>
+        <ul>
+          <li>the angle and length of each NPC's &quot;visibility cone&quot;</li>
+          <li>weight of cohesion, separation, and alignment (how much each sub-behavior of flock affects the overall flocking behavior)</li>
+        </ul>
+      </ul>
+<p>&nbsp;</p>
+<object width="721" height="377"><param name="movie" value="http://www.youtube.com/v/dkfnlqH06IY&hl=en&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999&border=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/dkfnlqH06IY&hl=en&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999&border=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="721" height="377"></embed></object>
+<p><strong>Video Description:</strong>   Groups of NPCs (red, pink, and yellow) <strong>FLOCK</strong> together, and each separate flock pursues the player-controlled character (blue).  Different colors distinguish the different flocking groups, but they are also there to show how variations of the behavior can be created by adjusting the tuners.  For example, the NPCs in the red flock have “visibility cones” with lower viewing angles, so their flock does not stay together as well as pink and yellow.  The separate flocks have also been given different speeds. </p>
+<p>&nbsp;</p>
+<hr />
+<p>&nbsp;</p>
+<p><strong><font color="#FF0000" style="font-size: large">8. Obstacle Avoidance</font></strong></p>
+<ul>
+  <li><font color="#FF8040">Features</font>:
+    <ul>
+      <li>NPC recognizes obstacles, and attempts to move around  them<br />
+      </li>
+    </ul>
+  </li>
+<li><font color="#FF8040">Tuners</font>:</li>
+  <ul>
+    <li>“Feeler length”, which is the range at which the  obstacle can be detected by the NPC</li>
+    </ul>
+  <p>&nbsp;</p>
+
+</ul>
+<object width="721" height="377">
+  <param name="movie" value="http://www.youtube.com/v/xZnuWRiKL6I&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1" />
+  <param name="allowFullScreen" value="true" />
+  <param name="allowscriptaccess" value="always" />
+  <embed src="http://www.youtube.com/v/xZnuWRiKL6I&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1" width="721" height="377" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true"></embed>
+</object>
+  
+<p><strong>Video Description:</strong>  A  player-controlled character (yellow egg) is moved around the plain, while a  flock of NPCs (white eggs) all pursue and use OBSTACLE AVOIDANCE to navigate  around the obstacles (tress).  </p>
+<p>&nbsp; </p>
+<hr />
+<p>&nbsp;</p>
+<p><strong><font color="#FF0000" style="font-size: large">9. Path Follow</font></strong></p>
+<ul>
+  <li><font color="#FF8040">Features</font>:
+    <ul>
+      <li>A path is formed from several waypoints placed in  3D space, which the NPC then traverses</li>
+      <ul>
+        <li>There must be at least two waypoints in order  for a path to be formed<br />
+        </li>
+      </ul>
+    </ul>
+  </li>
+  <li><font color="#FF8040">Tuners</font>:
+    <ul>
+      <li>Position of the waypoints</li></ul>
+  </li>
+  </ul>
+<p>
+  <object width="721" height="377">
+    <param name="movie" value="http://www.youtube.com/v/hIDyzUJgu2w&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param>
+    <embed src="http://www.youtube.com/v/hIDyzUJgu2w&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="721" height="377"></embed>
+  </object>
+</p>
+<p><strong>Video Description:</strong>   The NPC (red) traverses around a set path, formed by four waypoints  (yellow spheres).</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+    </div>
+    
+<hr />
+
+  <!-- end #mainContent --></div>
+  <div id="footer">
+    <p align="center">&nbsp;</p>
+    <p align="center">&nbsp;</p>
+    <p align="center">:: Team Pandai :: </p>
+  <!-- end #footer --></div>
+<!-- end #container --></div>
+</body>
+</html>

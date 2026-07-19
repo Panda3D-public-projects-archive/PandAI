@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>News</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<style type="text/css">
+<!--
+body {
+	font: 100% Verdana, Arial, Helvetica, sans-serif;
+	background: #000000;
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #FFFFFF;
+}
+.oneColFixCtrHdr #container {
+	width: 800px;  /* using 20px less than a full 800px width allows for browser chrome and avoids a horizontal scroll bar */
+	background: #000000;
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	border: 1px solid #000000;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+}
+.oneColFixCtrHdr #header {
+	background: #000000;
+	padding: 0 0px 0 0px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+}
+.oneColFixCtrHdr #header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 0px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+}
+.oneColFixCtrHdr #mainContent {
+	padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+	background: #000000;
+}
+.oneColFixCtrHdr #footer {
+	padding: 0 10px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+	background:#000000;
+}
+.oneColFixCtrHdr #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 13px; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+}
+-->
+</style></head>
+
+<body background="About/background.jpg" bgcolor="#000000" text="#FFFFFF" link="#33CCFF" vlink="#33CCFF" class="oneColFixCtrHdr">
+
+<div id="container">
+  <div id="header"></div>
+  <div id="mainContent">
+    <p align="center"><img src="About/PANDAILogo_new.png" width="169" height="169" /></p>
+<div align="center"><strong><a href="index.html">Home</a> | <a href="Team.html">Team</a> | <a href="Research.html">Research</a> | <a href="Community.html"> Community</a> | <a href="Gallery.html">Gallery</a> | <a href="Pathfinding.html">Pathfinding</a> | <a href="Download.html">Download</a></strong> <strong>| <a href="aitypes.html">AI Types</a></strong></div>
+<p>&nbsp;</p>
+<h1 align="center"><strong>Pathfinding</strong></h1>
+<p>&nbsp;</p>
+    <hr />
+    <p><u><strong>Pathfinding</strong></u></p>
+    <p align="justify"><br />
+      This deals with the NPC’s ability  to calculate the best route between two traversable points in your Panda3D  environment.  It requires the creation of  a navigation mesh (see “Navigation Mesh” description below), which is placed on  the surface over which your NPC will be moving.   The navigation mesh allows the system to recognize “traversable nodes”  around the mesh, as well as areas which cannot be traversed (areas occupied by  an impediment or obstacle for instance), represented by a lack of traversable  nodes, as seen in the video below.</p>
+    <p>&nbsp;</p>
+<p> 
+  <object width="721" height="377" hspace="0" align="middle">
+    <param name="movie" value="http://www.youtube.com/v/8T5An-TuaRo&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param>
+    <embed src="http://www.youtube.com/v/8T5An-TuaRo&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1" width="721" height="377" hspace="0" align="middle" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true"></embed>
+  </object>
+    
+  <!-- end #mainContent -->
+</p>
+  </div>
+  <div id="footer">
+    <p align="justify"><strong>Video  description:</strong>  A player-controlled  character (red) is moved around a simple navigation mesh while a non-player  character (blue) pursues it.  The plain’s  traversable nodes are represented by the yellow spheres in the grid, and the  NPC uses pathfinding to dynamically calculate the best route to its target  across the legal areas (that route is continuously shown with a red line).  Notice, that the NPC is not able to move over  the areas which are free of any traversable nodes – the boarders and the blank  space in the center of the plain – which can be representative of obstacles or  walls.</p>
+    <p align="justify">&nbsp;</p>
+    <object width="721" height="377" hspace="15"><param name="movie" value="http://www.youtube.com/v/LEh79cfL2uo&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/LEh79cfL2uo&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1" width="721" height="377" hspace="15" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+    <p>&nbsp;</p>
+    <p><strong>Video Description:</strong>  Four NPCs of varying colors (yellow, blue,  green, and purple) travel back and forth between two stationary points of their  respective colors.  At the same time,  five black NPCs patrol the perimeter of the scene, moving between the colored  pyramids in each of the four corners.   All characters are using pathfinding to calculate their fastest routes  and navigate around obstacles.</p>
+    <p>&nbsp;</p>
+    <object width="721" height="377" hspace="15"><param name="movie" value="http://www.youtube.com/v/oDzN-5W4vRQ&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/oDzN-5W4vRQ&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1" width="721" height="377" hspace="15" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+    <p>&nbsp;</p>
+    <p align="justify"><strong>Video  Description:</strong>  A player-controlled  character (red) is moved around the environment (sometimes through obstacles  since no collisions have been set) while a non-player character (blue) pursues  it, using pathfinding to calculate the best route to its target.  The NPC’s path is continuously drawn as a white  line, and you can see that it recognizes all obstacles in the environment and  calculates a path around them.</p>
+    <p align="justify">&nbsp;</p>
+    <p><u><strong>Navigation Mesh</strong></u></p>
+    <p align="justify"><br />
+      This mesh starts out as a simple plain, which can be created  using a 3D graphics program like 3D Studio Max, Maya, or Blender.  Objects placed on the plain that are meant to  represent impeding obstacles should have their bottom faces removed so that the  nav mesh is able to recognize the areas where the obstacle stands as  non-traversable spaces.  See the 2-part video  below for a detailed tutorial/walk-through for how to create a proper  navigation mesh.  <u></u></p>
+    <p align="justify">Part 1</p>
+    <object width="721" height="377" hspace="15"><param name="movie" value="http://www.youtube.com/v/ACLuXWkpJhU&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/ACLuXWkpJhU&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1" width="721" height="377" hspace="15" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+    <p>Video Description:  A  member of our team walks you through the necessary steps for creating a proper  navigation mesh required for Pathfinding. This video explains all the steps up to the generation of the navmesh.csv file from the model.</p>
+    <p>&nbsp; </p>
+    <p>Part 2</p>
+    <p>
+  <object width="721" height="377">
+    <param name="movie" value="http://www.youtube.com/v/Rug0eYBa88M&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param>
+    <embed src="http://www.youtube.com/v/Rug0eYBa88M&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1" width="721" height="377" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true"></embed>
+  </object>
+    </p>
+    <p>Video Description: This video explains how the navmesh.csv file generated is used with the pathfinding system.</p>
+    <p>  </p>
+    <p><u><strong>Obstacle Avoidance vs. Pathfinding </strong></u></p>
+    <p>&nbsp;</p>
+    
+    <p><br />
+    <strong>When to use  Pathfinding:</strong></p>
+    <p><br />
+      In certain situations, obstacle avoidance is not the best  solution for getting a non-playable character to intelligently navigate around  an object/impediment.  This usually  occurs with concaved objects, as shown in the video above.  The best solution here would be to use  pathfinding, which results in more intelligent obstacle navigation from the  NPC, as seen in the video below.</p>
+    <p>&nbsp;</p>
+    <object width="600" height="492" hspace="15">
+      <param name="movie" value="http://www.youtube.com/v/SRDL6ZrVKKY&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1" />
+      <param name="allowFullScreen" value="true" />
+      <param name="allowscriptaccess" value="always" />
+      <embed src="http://www.youtube.com/v/SRDL6ZrVKKY&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1" width="600" height="492" hspace="15" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true"></embed>
+    </object>
+    <p align="justify"><strong>Video  Description: </strong> The NPC (white egg) is  seeking the static red egg.  At first, it  uses obstacle avoidance to attempt to get around the concave obstacle, which  results in the character getting stuck in the object.  In the second half of the video, another  attempt to seek the target is made, but this time the character uses pathfinding  and “intelligently” finds its way around the concave impediment. </p>
+    <p align="justify"><br />
+      <em>Note:</em>  The inefficiency of obstacle avoidance in  this situation is not a flaw in our code, but rather a common feature of the  behavior.</p>
+<p>&nbsp;</p>
+<p><strong>When to use Obstacle  Avoidance:</strong></p>
+    <p align="justify"><br />
+      Pathfinding is not the ideal choice when you want many NPCs  (a flock for instance) to navigate around several obstacles.  In this scenario, obstacle avoidance works  best, as seen in the video below.  While  one or two of the characters in the flock will get caught up on an obstacle  from time to time, the overall desired effect is there.</p>
+    <p>&nbsp;</p>
+<p align="justify">
+  <object width="600" height="492">
+    <param name="movie" value="http://www.youtube.com/v/GVN9777LNCE&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param>
+    <embed src="http://www.youtube.com/v/GVN9777LNCE&hl=en_US&fs=1&color1=0x3a3a3a&color2=0x999999&border=1" width="600" height="492" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true"></embed>
+  </object>
+</p>
+<p><strong>Video Description: </strong> A  player-controlled character (yellow egg) is moved around the plain, while a  flock of NPCs (white eggs) all pursue and use OBSTACLE AVOIDANCE to navigate  around the moving obstacles (tress).    </p>
+<p>&nbsp;</p>
+<p align="justify">&nbsp;</p>
+    <p align="justify">&nbsp;</p>
+    <p align="justify">&nbsp;</p>
+    <p align="center">&nbsp;</p>
+    <p align="center">:: Team Pandai :: </p>
+  <!-- end #footer --></div>
+<!-- end #container --></div>
+</body>
+</html>
+
